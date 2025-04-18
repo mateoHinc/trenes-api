@@ -72,4 +72,30 @@ class TicketController extends Controller
 
         return response()->json(['message' => 'Ticket Eliminado con éxito']);
     }
+
+    public function usersBySchedule(Request $request, $id)
+    {
+        $tickets = Ticket::with('user')
+            ->where('schedule_id', $id)
+            ->get();
+
+        // Verifica si el usuario quiere una tabla (texto plano)
+        if ($request->query('format') === 'table') {
+            $table = "ID | Nombre       | Email                 | Asiento | Estado\n";
+            $table .= str_repeat('-', 65) . "\n";
+
+            foreach ($tickets as $ticket) {
+                $table .= sprintf(
+                    "%-2s | %-14s | %-20s | %-7s |%-8s\n",
+                    $ticket->user->id,
+                    $ticket->user->name,
+                    $ticket->user->email,
+                    $ticket->seat_number,
+                    $ticket->status
+                );
+            }
+
+            return response($table, 200)->header('Content-Type', "text/plain");
+        }
+    }
 }
