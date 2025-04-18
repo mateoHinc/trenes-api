@@ -22,6 +22,24 @@ class TicketController extends Controller
             'status' => 'in:reserved,cancelled,used'
         ]);
 
+        // Validate that entries are not repeated
+        $exists = Ticket::where('schedule_id', $request->schedule_id)
+            ->where('seat_number', $request->seat_number)
+            ->exists();
+
+        if ($exists) {
+            return response()->json(['error' => 'Ese asiento ya está reservado.'], 422);
+        }
+
+        // Validate that the capacity is not exceeded
+        $schedule = \App\Models\Schedule::with('route.train')->findOrFail($request->schedule_id);
+        $ticketsCount = Ticket::where('schedule_id', $request->schedule_id)->count();
+        $capacity = $schedule->route->train->capacity;
+
+        if ($ticketsCount >= $capacity) {
+            return response()->json(['error' => 'Capacidad máxima alcanzada para este tren.'], 422);
+        }
+
         $ticket = Ticket::create($validated);
         return response()->json($ticket, 201);
     }
