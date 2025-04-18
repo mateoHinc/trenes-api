@@ -81,7 +81,7 @@ class TicketController extends Controller
 
         // Verifica si el usuario quiere una tabla (texto plano)
         if ($request->query('format') === 'table') {
-            $table = "ID | Nombre       | Email                 | Asiento | Estado\n";
+            $table = "ID | Nombre          | Email                | Asiento | Estado\n";
             $table .= str_repeat('-', 65) . "\n";
 
             foreach ($tickets as $ticket) {
