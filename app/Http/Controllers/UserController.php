@@ -13,8 +13,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        // return response()->json(User::withTrashed()->get()); Muestran todos los usuarios incluyendo usuarios eliminados temporalmente
-        return response()->json(User::all());
+        return response()->json(User::withTrashed()->get()); //Muestran todos los usuarios incluyendo usuarios eliminados temporalmente
+        // return response()->json(User::all());
     }
 
     public function store(StoreUserRequest $request)
@@ -64,5 +64,18 @@ class UserController extends Controller
         return response()->json([
             'data' => $users
         ]);
+    }
+
+    public function restore($id)
+    {
+        $user = User::withTrashed()->findOrFail($id);
+
+        if (!$user->trashed()) {
+            return response()->json(['message' => 'El usuario no está eliminado.']);
+        }
+
+        $user->restore();
+
+        return response()->json(['message' => 'Usuario restaurado correctamente']);
     }
 }
