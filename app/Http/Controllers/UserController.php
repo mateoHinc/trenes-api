@@ -6,24 +6,25 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+
 class UserController extends Controller
 {
     public function index()
     {
+        // return response()->json(User::withTrashed()->get()); Muestran todos los usuarios incluyendo usuarios eliminados temporalmente
         return response()->json(User::all());
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:6'
-        ]);
+        $data = $request->validated();
 
-        $validated['password'] = Hash::make($validated['password']);
-
-        $user = User::create($validated);
+        if (isset($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        }
+        $user = User::create($data);
 
         return response()->json($user, 201);
     }
@@ -34,21 +35,16 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         $user = User::findOrFail($id);
+        $data = $request->validated();
 
-        $validated = $request->validate([
-            'name' => 'sometimes|string|max:255',
-            'email' => 'sometimes|string|email|unique:users,email,' . $user->id,
-            'password' => 'sometimes|string|min:6'
-        ]);
-
-        if (isset($validated['password'])) {
-            $validated['password'] = Hash::make($validated['password']);
+        if (isset($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
         }
 
-        $user->update($validated);
+        $user->update($data);
 
         return response()->json($user);
     }
@@ -59,5 +55,14 @@ class UserController extends Controller
         $user->delete();
 
         return response()->json(['message', 'Usuario Eliminado con éxito']);
+    }
+
+    public function onlyUsersTrashed()
+    {
+        $users = User::onlyTrashed()->get();
+
+        return response()->json([
+            'data' => $users
+        ]);
     }
 }
