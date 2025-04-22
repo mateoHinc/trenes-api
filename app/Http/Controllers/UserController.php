@@ -81,7 +81,27 @@ class UserController extends Controller
 
     public function userTickets($id)
     {
-        $user = User::with('tickets.schedule.route')->findOrFail($id);
+        $user = User::findOrFail($id);
+
+        $tickets = $user->tickets()
+            ->with(['schedule.route.origin', 'schedule.route.destination', 'schedule.route.train'])
+            ->get()
+            ->map(function ($ticket) {
+                return [
+                    'ticket_id' => $ticket->id,
+                    'seat_number' => $ticket->seat_number,
+                    'status' => $ticket->status,
+                    'schedule' => [
+                        'departure_time' => $ticket->schedule->departure_time,
+                        'arrival_time' => $ticket->schedule->arrival_time,
+                    ],
+                    'route' => [
+                        'origin' => $ticket->schedule->route->origin->name,
+                        'destination' => $ticket->schedule->route->destination->name,
+                        'train' => $ticket->schedule->route->train->name,
+                    ]
+                ];
+            });
 
         return response()->json([
             'user' => [
@@ -89,7 +109,7 @@ class UserController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
             ],
-            'tickets' => $user->tickets,
+            'tickets' => $tickets,
         ]);
     }
 }
