@@ -23,3 +23,4 @@ Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']
 Route::apiResource('users', UserController::class);
 Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);
 Route::put('/users/{id}/restore', [UserController::class, 'restore']);
+Route::get('/users/{id}/tickets', [UserController::class, 'userTickets']);

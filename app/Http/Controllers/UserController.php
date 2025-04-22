@@ -78,4 +78,18 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Usuario restaurado correctamente']);
     }
+
+    public function userTickets($id)
+    {
+        $user = User::with('tickets.schedule.route')->findOrFail($id);
+
+        return response()->json([
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+            ],
+            'tickets' => $user->tickets,
+        ]);
+    }
 }
