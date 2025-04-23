@@ -18,6 +18,7 @@ Route::apiResource('routes', RouteController::class);
 Route::apiResource('schedules', ScheduleController::class);
 
 Route::apiResource('tickets', TicketController::class);
+Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
 Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
 Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']);
 

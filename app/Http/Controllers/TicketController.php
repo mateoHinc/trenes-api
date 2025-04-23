@@ -129,4 +129,35 @@ class TicketController extends Controller
             'tickets' => $response
         ]);
     }
+
+    public function cancel($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+
+        if ($ticket->status === 'canceled') {
+            return response()->json([
+                'message' => 'Este ticket ya está cancelado.'
+            ], 400);
+        }
+
+        if ($ticket->status === 'used') {
+            return response()->json([
+                'message' => 'No se puede cancelar un ticket que ya fue usado.'
+            ], 400);
+        }
+
+        if ($ticket->status === 'canceled') {
+            return response()->json([
+                'message' => 'Este ticket ya está cancelado.'
+            ],);
+        }
+
+        $ticket->status = 'cancelled';
+        $ticket->save();
+
+        return response()->json([
+            'message' => 'Ticket cancelado correctamente.',
+            'ticket' => $ticket
+        ]);
+    }
 }
