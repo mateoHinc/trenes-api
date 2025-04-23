@@ -18,6 +18,7 @@ Route::apiResource('routes', RouteController::class);
 Route::apiResource('schedules', ScheduleController::class);
 
 Route::apiResource('tickets', TicketController::class);
+Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
 Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']);
 
 Route::apiResource('users', UserController::class);

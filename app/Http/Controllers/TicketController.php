@@ -98,4 +98,35 @@ class TicketController extends Controller
             return response($table, 200)->header('Content-Type', "text/plain");
         }
     }
+
+    public function ticketsBySchedule($id)
+    {
+        $tickets = Ticket::with('user')
+            ->where('schedule_id', $id)
+            ->get();
+
+        if ($tickets->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay tickets para este horario.'
+            ], 404);
+        }
+
+        $response = $tickets->map(function ($ticket) {
+            return [
+                'ticket_id' => $ticket->id,
+                'user' => [
+                    'id' => $ticket->user->id,
+                    'name' => $ticket->user->name,
+                    'email' => $ticket->user->email,
+                ],
+                'seat_number' => $ticket->seat_number,
+                'status' => $ticket->status,
+            ];
+        });
+
+        return response()->json([
+            'schedule_id' => $id,
+            'tickets' => $response
+        ]);
+    }
 }
