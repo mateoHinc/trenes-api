@@ -112,4 +112,23 @@ class UserController extends Controller
             'tickets' => $tickets,
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('name');
+
+        if (!$query) {
+            return response()->json([
+                'message' => 'Parámetro "name" requerido para la búsqueda.'
+            ], 400);
+        }
+
+        $users = User::where('name', 'like', "%{$query}%")
+            ->orWhere('email', 'like', "%{$query}%")
+            ->get();
+
+        return response()->json([
+            'results' => $users
+        ]);
+    }
 }
