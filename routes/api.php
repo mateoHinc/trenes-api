@@ -29,3 +29,4 @@ Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);
 Route::put('/users/{id}/restore', [UserController::class, 'restore']);
 Route::get('/users/{id}/tickets', [UserController::class, 'userTickets']);
 Route::get('/users/search', [UserController::class, 'search']);
+Route::patch('/users/{id}/deactivate', [UserController::class, 'toggleActive']);

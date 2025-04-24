@@ -131,4 +131,19 @@ class UserController extends Controller
             'results' => $users
         ]);
     }
+
+    public function toggleActive($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->is_active = !$user->is_active;
+        $user->save();
+
+        return response()->json([
+            'message' => $user->is_active
+                ? 'Usuario activado correctamente.'
+                : 'Usuario desactivado correctamente.',
+            'user' => $user
+        ]);
+    }
 }
