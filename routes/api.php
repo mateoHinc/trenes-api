@@ -21,6 +21,8 @@ Route::apiResource('tickets', TicketController::class);
 Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
 Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
 Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']);
+Route::post('/tickets/{id}/use', [TicketController::class, 'markAsUsed']);
+
 
 Route::apiResource('users', UserController::class);
 Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);

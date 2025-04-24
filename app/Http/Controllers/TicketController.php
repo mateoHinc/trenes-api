@@ -160,4 +160,29 @@ class TicketController extends Controller
             'ticket' => $ticket
         ]);
     }
+
+    public function markAsUsed($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+
+        if ($ticket->status === 'used') {
+            return response()->json([
+                'message' => 'Este ticket ya fue utilizado.'
+            ], 400);
+        }
+
+        if ($ticket->status === 'cancelled') {
+            return response()->json([
+                'message' => 'No se puede usar un ticket cancelado.'
+            ], 400);
+        }
+
+        $ticket->status = 'used';
+        $ticket->save();
+
+        return response()->json([
+            'message' => 'Ticket marcado como utilizado.',
+            'ticket' => $ticket
+        ]);
+    }
 }
