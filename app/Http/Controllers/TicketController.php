@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -201,6 +202,43 @@ class TicketController extends Controller
         return response()->json([
             'total' => $tickets->count(),
             'tickets' => $tickets
+        ]);
+    }
+
+    public function userTicketHistory($id)
+    {
+        $user = User::with(['tickets.schedule.route.train'])->findOrFail($id);
+
+        if ($user->tickets->isEmpty()) {
+            return response()->json([
+                'message' => 'Este usuario no tiene tickets registrados.'
+            ], 404);
+        }
+
+        $history = $user->tickets->map(function ($ticket) {
+            return [
+                'ticket_id' => $ticket->id,
+                'seat_number' => $ticket->seat_number,
+                'status' => $ticket->status,
+                'schedule' => [
+                    'departure_time' => $ticket->schedule->departure_time,
+                    'arrival_time' => $ticket->schedule->arrival_time,
+                ],
+                'route' => [
+                    'origin' => $ticket->schedule->route->origin->name ?? 'N/A',
+                    'destination' => $ticket->schedule->route->destination->name ?? 'N/A',
+                    'train' => $ticket->schedule->route->train->name ?? 'N/A',
+                ]
+            ];
+        });
+
+        return response()->json([
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+            ],
+            'tickets' => $history
         ]);
     }
 }

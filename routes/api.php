@@ -21,12 +21,13 @@ Route::apiResource('tickets', TicketController::class);
 Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']);
 Route::get('/tickets/active', [TicketController::class, 'activeTickets']);
 Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
+Route::get('/tickets/history/user/{id}', [TicketController::class, 'userTicketHistory']);
 Route::post('/tickets/{id}/use', [TicketController::class, 'markAsUsed']);
 Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
 
 Route::apiResource('users', UserController::class);
 Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);
-Route::put('/users/{id}/restore', [UserController::class, 'restore']);
 Route::get('/users/{id}/tickets', [UserController::class, 'userTickets']);
 Route::get('/users/search', [UserController::class, 'search']);
+Route::put('/users/{id}/restore', [UserController::class, 'restore']);
 Route::patch('/users/{id}/deactivate', [UserController::class, 'toggleActive']);
