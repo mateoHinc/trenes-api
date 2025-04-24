@@ -185,4 +185,22 @@ class TicketController extends Controller
             'ticket' => $ticket
         ]);
     }
+
+    public function activeTickets()
+    {
+        $tickets = Ticket::with('user', 'schedule.route.train')
+            ->where('status', 'reserved')
+            ->get();
+
+        if ($tickets->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay tickets activos.'
+            ], 404);
+        }
+
+        return response()->json([
+            'total' => $tickets->count(),
+            'tickets' => $tickets
+        ]);
+    }
 }

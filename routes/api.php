@@ -18,11 +18,11 @@ Route::apiResource('routes', RouteController::class);
 Route::apiResource('schedules', ScheduleController::class);
 
 Route::apiResource('tickets', TicketController::class);
-Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
-Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
 Route::get('/schedules/{id}/users', [TicketController::class, 'usersBySchedule']);
+Route::get('/tickets/active', [TicketController::class, 'activeTickets']);
+Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedule']);
 Route::post('/tickets/{id}/use', [TicketController::class, 'markAsUsed']);
-
+Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
 
 Route::apiResource('users', UserController::class);
 Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);
