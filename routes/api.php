@@ -14,6 +14,7 @@ Route::apiResource('stations', StationController::class);
 Route::apiResource('trains', TrainController::class);
 
 Route::apiResource('routes', RouteController::class);
+Route::get('/trains/{id}/routes', [TrainController::class, 'trainRoutes']);
 
 Route::apiResource('schedules', ScheduleController::class);
 

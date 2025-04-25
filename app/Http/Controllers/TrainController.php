@@ -57,4 +57,31 @@ class TrainController extends Controller
 
         return response()->json(['message' => 'Tren Eliminado con éxito']);
     }
+
+    public function trainRoutes($id)
+    {
+        $train = Train::with(['routes.origin', 'routes.destination'])->findOrFail($id);
+
+        if ($train->routes->isEmpty()) {
+            return response()->json([
+                'message' => 'Este tren no tiene rutas asignadas.'
+            ], 404);
+        }
+
+        $routes = $train->routes->map(function ($route) {
+            return [
+                'route_id' => $route->id,
+                'origin' => $route->origin->name ?? 'Origen no disponible',
+                'destination' => $route->destination->name ?? 'Destino no disponible',
+            ];
+        });
+
+        return response()->json([
+            'train' => [
+                'id' => $train->id,
+                'name' => $train->name,
+            ],
+            'routes' => $routes
+        ]);
+    }
 }
