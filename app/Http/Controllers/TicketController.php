@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,17 @@ class TicketController extends Controller
             'status' => 'in:reserved,cancelled,used'
         ]);
 
+        // Validate if the user already has a ticket for this schedule
+        $duplicate = Ticket::where('user_id', $validated['user_id'])
+            ->where('schedule_id', $validated['schedule_id'])
+            ->exists();
+
+        if ($duplicate) {
+            return response()->json([
+                'message' => 'Este usuario ya tiene un ticket para este horario.'
+            ], 422);
+        }
+
         // Validate that entries are not repeated
         $exists = Ticket::where('schedule_id', $request->schedule_id)
             ->where('seat_number', $request->seat_number)
@@ -33,7 +45,7 @@ class TicketController extends Controller
         }
 
         // Validate that the capacity is not exceeded
-        $schedule = \App\Models\Schedule::with('route.train')->findOrFail($request->schedule_id);
+        $schedule = Schedule::with('route.train')->findOrFail($request->schedule_id);
         $ticketsCount = Ticket::where('schedule_id', $request->schedule_id)->count();
         $capacity = $schedule->route->train->capacity;
 
