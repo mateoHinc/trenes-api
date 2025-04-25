@@ -84,4 +84,20 @@ class TrainController extends Controller
             'routes' => $routes
         ]);
     }
+
+    public function availableTrains()
+    {
+        $trains = Train::doesntHave('routes')->get();
+
+        if ($trains->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay trenes disponibles sin rutas asignadas.'
+            ], 404);
+        }
+
+        return response()->json([
+            'total' => $trains->count(),
+            'trains' => $trains
+        ]);
+    }
 }
