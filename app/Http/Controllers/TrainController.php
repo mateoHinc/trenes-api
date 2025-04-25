@@ -45,7 +45,14 @@ class TrainController extends Controller
 
     public function destroy(string $id)
     {
-        $train = Train::findOrFail($id);
+        $train = Train::with('routes')->findOrFail($id);
+
+        if ($train->routes->isNotEmpty()) {
+            return response()->json([
+                'message' => 'No se puede eliminar el tren porque tiene rutas asignadas'
+            ], 400);
+        }
+
         $train->delete();
 
         return response()->json(['message' => 'Tren Eliminado con éxito']);
