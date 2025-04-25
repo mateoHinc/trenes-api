@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Train;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTrainRequest;
+use App\Http\Requests\UpdateTrainRequest;
 
 class TrainController extends Controller
 {
@@ -13,15 +14,15 @@ class TrainController extends Controller
         return response()->json($trains);
     }
 
-    public function store(Request $request)
+    public function store(StoreTrainRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'capacity' => 'required|integer|min:1',
-        ]);
 
-        $train = Train::create($validated);
-        return response()->json($train, 201);
+        $train = Train::create($request->validated());
+
+        return response()->json([
+            'message' => 'Tren creado exitosamente.',
+            'train' => $train
+        ], 201);
     }
 
     public function show(string $id)
@@ -30,17 +31,16 @@ class TrainController extends Controller
         return response()->json($train);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateTrainRequest $request, string $id)
     {
         $train = Train::findOrFail($id);
 
-        $validated = $request->validate([
-            'name' => 'sometimes|string|max:255',
-            'capacity' => 'sometimes|integer|min:1',
-        ]);
+        $train->update($request->validated());
 
-        $train->update($validated);
-        return response()->json($train);
+        return response()->json([
+            'message' => 'Tren actualizado correctamente.',
+            'train' => $train
+        ]);
     }
 
     public function destroy(string $id)
