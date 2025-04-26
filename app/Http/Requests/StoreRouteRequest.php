@@ -25,8 +25,12 @@ class StoreRouteRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'train_id.required' => 'El tren es obligatorio.',
+            'train_id.exists' => 'El tren seleccionado no existe.',
             'origin_station_id.required' => 'La estación de origen es obligatoria.',
+            'origin_station_id.exists' => 'La estación de origen no existe.',
             'destination_station_id.required' => 'La estación de destino es obligatoria.',
+            'destination_station_id.exists' => 'La estación de destino no existe.',
             'origin_station_id.different' => 'La estación de origen y destino deben ser diferentes.',
         ];
     }

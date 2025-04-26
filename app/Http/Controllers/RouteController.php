@@ -45,8 +45,16 @@ class RouteController extends Controller
 
     public function destroy(string $id)
     {
-        $route = Route::findOrFail($id);
+        $route = Route::with('schedules')->findOrFail($id);
+
+        if ($route->schedules->isNotEmpty()) {
+            return response()->json([
+                'message' => 'No se puede eliminar esta ruta porque tiene horarios asociados.'
+            ], 400);
+        }
+
         $route->delete();
+
         return response()->json(['message' => "Ruta Eliminada con éxito"]);
     }
 }
