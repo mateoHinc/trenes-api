@@ -6,6 +6,8 @@ use App\Models\Ticket;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTicketRequest;
+use App\Http\Requests\UpdateTicketRequest;
 
 class TicketController extends Controller
 {
@@ -15,14 +17,9 @@ class TicketController extends Controller
         return response()->json($tickets);
     }
 
-    public function store(Request $request)
+    public function store(StoreTicketRequest $request)
     {
-        $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'schedule_id' => 'required|exists:schedules,id',
-            'seat_number' => 'required|integer|min:1',
-            'status' => 'in:reserved,cancelled,used'
-        ]);
+        $validated = $request->validated();
 
         // Validate if the user already has a ticket for this schedule
         $duplicate = Ticket::where('user_id', $validated['user_id'])
@@ -54,7 +51,10 @@ class TicketController extends Controller
         }
 
         $ticket = Ticket::create($validated);
-        return response()->json($ticket, 201);
+        return response()->json([
+            'message' => 'Ticket creado exitosamente.',
+            'ticket' => $ticket
+        ], 201);
     }
 
     public function show(string $id)
@@ -63,19 +63,17 @@ class TicketController extends Controller
         return response()->json($ticket);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateTicketRequest $request, string $id)
     {
         $ticket = Ticket::findOrFail($id);
 
-        $validated = $request->validate([
-            'user_id' => 'sometimes|exists:users,id',
-            'schedule_id' => 'sometimes|exists:schedules,id',
-            'seat_number' => 'sometimes|integer|min:1',
-            'status' => 'sometimes|in:reserved,cancelled,used'
-        ]);
+        $validated = $request->validated();
 
         $ticket->update($validated);
-        return response()->json($ticket);
+        return response()->json([
+            'message' => 'Ticket actualizado correctamente.',
+            'ticket' => $ticket
+        ]);
     }
 
     public function destroy(string $id)
