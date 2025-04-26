@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Route;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreRouteRequest;
+use App\Http\Requests\UpdateRouteRequest;
 
 class RouteController extends Controller
 {
@@ -12,15 +13,15 @@ class RouteController extends Controller
         $routes = Route::with(['train', 'origin', 'destination'])->get();
         return response()->json($routes);
     }
-    public function store(Request $request)
+
+    public function store(StoreRouteRequest $request)
     {
-        $validated = $request->validate([
-            'train_id' => 'required|exists:trains,id',
-            'origin_station_id' => 'required|exists:stations,id',
-            'destination_station_id' => 'required|exists:stations,id',
-        ]);
+        $validated = $request->validated();
         $route = Route::create($validated);
-        return response()->json($route, 201);
+        return response()->json([
+            'message' => 'Ruta creada exitosamente.',
+            'route' => $route
+        ], 201);
     }
 
     public function show(string $id)
@@ -29,18 +30,17 @@ class RouteController extends Controller
         return response()->json($route);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateRouteRequest $request, string $id)
     {
         $route = Route::findOrFail($id);
 
-        $validated = $request->validate([
-            'traind_id' => 'sometimes|exists:trains,id',
-            'origin_station_id' => 'sometimes|exists:stations,id',
-            'destination_station_id' => 'sometimes|exists:stations,id',
-        ]);
+        $validated = $request->validated();
 
         $route->update($validated);
-        return response()->json($route);
+        return response()->json([
+            'message' => 'Ruta actualizada correctamente.',
+            'route' => $route
+        ]);
     }
 
     public function destroy(string $id)
