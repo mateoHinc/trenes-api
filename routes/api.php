@@ -16,6 +16,7 @@ Route::apiResource('trains', TrainController::class);
 Route::apiResource('routes', RouteController::class);
 Route::get('/trains/{id}/routes', [TrainController::class, 'trainRoutes']);
 Route::get('/trains/available', [TrainController::class, 'availableTrains']);
+Route::patch('/trains/{id}/deactivate', [TrainController::class, 'toggleActive']);
 
 Route::apiResource('schedules', ScheduleController::class);
 

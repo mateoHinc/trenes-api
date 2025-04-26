@@ -100,4 +100,19 @@ class TrainController extends Controller
             'trains' => $trains
         ]);
     }
+
+    public function toggleActive($id)
+    {
+        $train = Train::findOrFail($id);
+
+        $train->is_active = !$train->is_active;
+        $train->save();
+
+        return response()->json([
+            'message' => $train->is_active
+                ? 'Tren activado correctamente.'
+                : 'Tren desactivado correctamente.',
+            'train' => $train
+        ]);
+    }
 }
