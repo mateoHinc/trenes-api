@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Schedule;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -77,7 +78,6 @@ class ScheduleController extends Controller
 
     public function todaySchedules()
     {
-
         $today = Carbon::today(); // Inicio del día actual (00:00:00)
         $tomorrow = Carbon::tomorrow(); // Inicio del siguiente día (00:00:00 de mañana)
 
@@ -95,6 +95,33 @@ class ScheduleController extends Controller
         return response()->json([
             'total' => $schedules->count(),
             'schedules' => $schedules
+        ]);
+    }
+
+    public function seatsAvailable($id)
+    {
+        $schedule = Schedule::with('route.train')->findOrFail($id);
+
+        if (!$schedule->route || !$schedule->route->train) {
+            return response()->json([
+                'message' => 'El horario no tiene ruta o tren asociado.'
+            ], 404);
+        }
+
+        $trainCapacity = $schedule->route->train->capacity;
+
+        $ticketsReserved = Ticket::where('schedule_id', $id)
+            ->where('status', 'reserved')
+            ->count();
+
+        $seatsAvailable = $trainCapacity - $ticketsReserved;
+
+        return response()->json([
+            'schedule_id' => $schedule->id,
+            'train' => $schedule->route->train->name,
+            'total_seats' => $trainCapacity,
+            'reserved_seats' => $ticketsReserved,
+            'seats_available' => $seatsAvailable
         ]);
     }
 }
