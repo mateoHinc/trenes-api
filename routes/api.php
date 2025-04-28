@@ -18,6 +18,7 @@ Route::apiResource('routes', RouteController::class);
 Route::get('/trains/{id}/routes', [TrainController::class, 'trainRoutes']);
 Route::patch('/trains/{id}/deactivate', [TrainController::class, 'toggleActive']);
 
+Route::get('/schedules/today', [ScheduleController::class, 'todaySchedules']);
 Route::get('/schedules/next', [ScheduleController::class, 'nextSchedules']);
 Route::apiResource('schedules', ScheduleController::class);
 
@@ -28,7 +29,6 @@ Route::get('/tickets/schedule/{id}', [TicketController::class, 'ticketsBySchedul
 Route::get('/tickets/history/user/{id}', [TicketController::class, 'userTicketHistory']);
 Route::post('/tickets/{id}/use', [TicketController::class, 'markAsUsed']);
 Route::post('/tickets/{id}/cancel', [TicketController::class, 'cancel']);
-
 
 Route::get('/users/search', [UserController::class, 'search']);
 Route::apiResource('users', UserController::class);

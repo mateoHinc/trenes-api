@@ -74,4 +74,27 @@ class ScheduleController extends Controller
             'schedules' => $schedules
         ]);
     }
+
+    public function todaySchedules()
+    {
+
+        $today = Carbon::today(); // Inicio del día actual (00:00:00)
+        $tomorrow = Carbon::tomorrow(); // Inicio del siguiente día (00:00:00 de mañana)
+
+        $schedules = Schedule::with(['route.origin', 'route.destination', 'route.train'])
+            ->whereBetween('departure_time', [$today, $tomorrow])
+            ->orderBy('departure_time')
+            ->get();
+
+        if ($schedules->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay horarios programados para hoy.'
+            ], 404);
+        }
+
+        return response()->json([
+            'total' => $schedules->count(),
+            'schedules' => $schedules
+        ]);
+    }
 }
