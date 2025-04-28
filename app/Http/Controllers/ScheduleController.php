@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -30,7 +31,6 @@ class ScheduleController extends Controller
         $schedule = Schedule::with('route')->findOrFail($id);
         return response()->json($schedule);
     }
-
     public function update(Request $request, string $id)
     {
         $schedule = Schedule::findOrFail($id);
@@ -51,5 +51,27 @@ class ScheduleController extends Controller
         $schedule->delete();
 
         return response()->json(['message' => 'Horario Eliminado con éxito']);
+    }
+
+    public function nextSchedules()
+    {
+        $now = Carbon::now();
+        $next24h = $now->copy()->addHours(24);
+
+        $schedules = Schedule::with(['route.origin', 'route.destination', 'route.train'])
+            ->whereBetween('departure_time', [$now, $next24h])
+            ->orderBy('departure_time')
+            ->get();
+
+        if ($schedules->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay horarios programados en las próximas 24 horas.'
+            ], 404);
+        }
+
+        return response()->json([
+            'total' => $schedules->count(),
+            'schedules' => $schedules
+        ]);
     }
 }
