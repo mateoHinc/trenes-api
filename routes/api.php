@@ -8,6 +8,7 @@ use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
 
 Route::apiResource('stations', StationController::class);
 
@@ -37,3 +38,6 @@ Route::get('/users/trashed', [UserController::class, 'onlyUsersTrashed']);
 Route::get('/users/{id}/tickets', [UserController::class, 'userTickets']);
 Route::put('/users/{id}/restore', [UserController::class, 'restore']);
 Route::patch('/users/{id}/deactivate', [UserController::class, 'toggleActive']);
+
+Route::get('/reports/train-usage', [ReportController::class, 'trainUsage']);
+Route::apiResource('reports', ReportController::class);
