@@ -40,4 +40,5 @@ Route::put('/users/{id}/restore', [UserController::class, 'restore']);
 Route::patch('/users/{id}/deactivate', [UserController::class, 'toggleActive']);
 
 Route::get('/reports/train-usage', [ReportController::class, 'trainUsage']);
+Route::get('/reports/income', [ReportController::class, 'incomeReport']);
 Route::apiResource('reports', ReportController::class);

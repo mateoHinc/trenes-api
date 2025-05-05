@@ -46,4 +46,24 @@ class ReportController extends Controller
             'report' => $data
         ]);
     }
+
+    public function incomeReport()
+    {
+        $tickets = Ticket::whereIn('status', ['reserved', 'used'])->get();
+
+        $total = $tickets->sum('price');
+
+        $bySchedule = $tickets->groupBy('schedule_id')->map(function ($group) {
+            return [
+                'tickets_sold' => $group->count(),
+                'income' => $group->sum('price'),
+            ];
+        });
+
+        return response()->json([
+            'total_income' => $total,
+            'total_tickets' => $tickets->count(),
+            'breakdown_by_schedule' => $bySchedule,
+        ]);
+    }
 }
