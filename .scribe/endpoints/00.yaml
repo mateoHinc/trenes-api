@@ -1,0 +1,2412 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/stations
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"Estaci\u00f3n 1","city":"Medellin","created_at":"2025-04-16T01:23:42.000000Z","updated_at":"2025-04-16T01:23:42.000000Z"},{"id":2,"name":"Estaci\u00f3n 2","city":"Medellin","created_at":"2025-04-16T01:25:38.000000Z","updated_at":"2025-04-16T01:25:38.000000Z"},{"id":3,"name":"Estaci\u00f3n 3","city":"Medellin","created_at":"2025-04-16T01:25:43.000000Z","updated_at":"2025-04-16T01:25:43.000000Z"},{"id":4,"name":"Estaci\u00f3n 4","city":"Medellin","created_at":"2025-04-16T01:25:50.000000Z","updated_at":"2025-04-16T01:25:50.000000Z"},{"id":5,"name":"Estaci\u00f3n 5","city":"Medellin","created_at":"2025-04-16T01:25:56.000000Z","updated_at":"2025-04-16T01:25:56.000000Z"},{"id":6,"name":"Estaci\u00f3n 6","city":"Medellin","created_at":"2025-04-16T01:28:46.000000Z","updated_at":"2025-04-16T01:28:46.000000Z"},{"id":7,"name":"Estaci\u00f3n 6","city":"Medellin","created_at":"2025-04-16T01:29:41.000000Z","updated_at":"2025-04-16T01:29:41.000000Z"},{"id":8,"name":"Estaci\u00f3n Cartagena 1","city":"Cartagena","created_at":"2025-04-23T17:28:48.000000Z","updated_at":"2025-04-23T17:28:48.000000Z"},{"id":9,"name":"Estaci\u00f3n Santa Marta 1","city":"Santa Marta","created_at":"2025-04-23T17:29:16.000000Z","updated_at":"2025-04-23T17:29:16.000000Z"},{"id":10,"name":"Estaci\u00f3n Santa Marta 2","city":"Santa Marta","created_at":"2025-04-23T17:29:23.000000Z","updated_at":"2025-04-23T17:29:23.000000Z"},{"id":11,"name":"Estaci\u00f3n Santa Marta 3","city":"Santa Marta","created_at":"2025-04-23T17:29:28.000000Z","updated_at":"2025-04-23T17:29:28.000000Z"},{"id":12,"name":"Estaci\u00f3n Cartagena 2","city":"Cartagena","created_at":"2025-04-23T17:29:41.000000Z","updated_at":"2025-04-23T17:29:41.000000Z"},{"id":13,"name":"Estaci\u00f3n Cartagena 3","city":"Cartagena","created_at":"2025-04-23T17:29:47.000000Z","updated_at":"2025-04-23T17:29:47.000000Z"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/stations
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      city: 'n'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/stations/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the station.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"name":"Estaci\u00f3n 1","city":"Medellin","created_at":"2025-04-16T01:23:42.000000Z","updated_at":"2025-04-16T01:23:42.000000Z"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/stations/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the station.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      city: 'n'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/stations/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the station.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/trains/available
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total":2,"trains":[{"id":3,"name":"Tren ligero","capacity":25,"created_at":"2025-04-23T17:26:33.000000Z","updated_at":"2025-04-23T17:26:33.000000Z","is_active":1},{"id":4,"name":"Tren regional","capacity":30,"created_at":"2025-04-23T17:27:03.000000Z","updated_at":"2025-04-23T17:27:03.000000Z","is_active":1}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/trains
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"Tren Bala","capacity":50,"created_at":"2025-04-16T01:38:55.000000Z","updated_at":"2025-04-16T01:38:55.000000Z","is_active":1},{"id":2,"name":"Tren suburbano","capacity":2,"created_at":"2025-04-18T18:34:12.000000Z","updated_at":"2025-04-18T18:34:12.000000Z","is_active":1},{"id":3,"name":"Tren ligero","capacity":25,"created_at":"2025-04-23T17:26:33.000000Z","updated_at":"2025-04-23T17:26:33.000000Z","is_active":1},{"id":4,"name":"Tren regional","capacity":30,"created_at":"2025-04-23T17:27:03.000000Z","updated_at":"2025-04-23T17:27:03.000000Z","is_active":1},{"id":5,"name":"Tren tur\u00edstico","capacity":50,"created_at":"2025-04-23T17:27:49.000000Z","updated_at":"2025-04-23T17:27:49.000000Z","is_active":1},{"id":7,"name":"Tren Interurbano","capacity":100,"created_at":"2025-04-26T20:56:50.000000Z","updated_at":"2025-04-26T20:57:09.000000Z","is_active":1}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/trains
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      capacity:
+        name: capacity
+        description: 'Must be at least 1.'
+        required: true
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      capacity: 22
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/trains/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the train.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"name":"Tren Bala","capacity":50,"created_at":"2025-04-16T01:38:55.000000Z","updated_at":"2025-04-16T01:38:55.000000Z","is_active":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/trains/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the train.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      capacity:
+        name: capacity
+        description: 'Must be at least 1.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      capacity: 22
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/trains/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the train.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/routes
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z","train":{"id":1,"name":"Tren Bala","capacity":50,"created_at":"2025-04-16T01:38:55.000000Z","updated_at":"2025-04-16T01:38:55.000000Z","is_active":1},"origin":{"id":1,"name":"Estaci\u00f3n 1","city":"Medellin","created_at":"2025-04-16T01:23:42.000000Z","updated_at":"2025-04-16T01:23:42.000000Z"},"destination":{"id":5,"name":"Estaci\u00f3n 5","city":"Medellin","created_at":"2025-04-16T01:25:56.000000Z","updated_at":"2025-04-16T01:25:56.000000Z"}},{"id":2,"train_id":2,"origin_station_id":5,"destination_station_id":1,"created_at":"2025-04-18T18:35:07.000000Z","updated_at":"2025-04-18T18:35:07.000000Z","train":{"id":2,"name":"Tren suburbano","capacity":2,"created_at":"2025-04-18T18:34:12.000000Z","updated_at":"2025-04-18T18:34:12.000000Z","is_active":1},"origin":{"id":5,"name":"Estaci\u00f3n 5","city":"Medellin","created_at":"2025-04-16T01:25:56.000000Z","updated_at":"2025-04-16T01:25:56.000000Z"},"destination":{"id":1,"name":"Estaci\u00f3n 1","city":"Medellin","created_at":"2025-04-16T01:23:42.000000Z","updated_at":"2025-04-16T01:23:42.000000Z"}},{"id":3,"train_id":5,"origin_station_id":9,"destination_station_id":8,"created_at":"2025-04-23T17:32:12.000000Z","updated_at":"2025-04-23T17:32:12.000000Z","train":{"id":5,"name":"Tren tur\u00edstico","capacity":50,"created_at":"2025-04-23T17:27:49.000000Z","updated_at":"2025-04-23T17:27:49.000000Z","is_active":1},"origin":{"id":9,"name":"Estaci\u00f3n Santa Marta 1","city":"Santa Marta","created_at":"2025-04-23T17:29:16.000000Z","updated_at":"2025-04-23T17:29:16.000000Z"},"destination":{"id":8,"name":"Estaci\u00f3n Cartagena 1","city":"Cartagena","created_at":"2025-04-23T17:28:48.000000Z","updated_at":"2025-04-23T17:28:48.000000Z"}},{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z","train":{"id":7,"name":"Tren Interurbano","capacity":100,"created_at":"2025-04-26T20:56:50.000000Z","updated_at":"2025-04-26T20:57:09.000000Z","is_active":1},"origin":{"id":5,"name":"Estaci\u00f3n 5","city":"Medellin","created_at":"2025-04-16T01:25:56.000000Z","updated_at":"2025-04-16T01:25:56.000000Z"},"destination":{"id":2,"name":"Estaci\u00f3n 2","city":"Medellin","created_at":"2025-04-16T01:25:38.000000Z","updated_at":"2025-04-16T01:25:38.000000Z"}}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/routes
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      train_id:
+        name: train_id
+        description: 'The <code>id</code> of an existing record in the trains table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      origin_station_id:
+        name: origin_station_id
+        description: 'The <code>id</code> of an existing record in the stations table. The value and <code>destination_station_id</code> must be different.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      destination_station_id:
+        name: destination_station_id
+        description: 'The <code>id</code> of an existing record in the stations table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      train_id: architecto
+      origin_station_id: architecto
+      destination_station_id: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/routes/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the route.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z","train":{"id":1,"name":"Tren Bala","capacity":50,"created_at":"2025-04-16T01:38:55.000000Z","updated_at":"2025-04-16T01:38:55.000000Z","is_active":1},"origin":{"id":1,"name":"Estaci\u00f3n 1","city":"Medellin","created_at":"2025-04-16T01:23:42.000000Z","updated_at":"2025-04-16T01:23:42.000000Z"},"destination":{"id":5,"name":"Estaci\u00f3n 5","city":"Medellin","created_at":"2025-04-16T01:25:56.000000Z","updated_at":"2025-04-16T01:25:56.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/routes/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the route.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      traind_id:
+        name: traind_id
+        description: 'The <code>id</code> of an existing record in the trains table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      origin_station_id:
+        name: origin_station_id
+        description: 'The <code>id</code> of an existing record in the stations table. The value and <code>destination_station_id</code> must be different.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      destination_station_id:
+        name: destination_station_id
+        description: 'The <code>id</code> of an existing record in the stations table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/routes/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the route.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/trains/{id}/routes'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the train.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"train":{"id":1,"name":"Tren Bala"},"routes":[{"route_id":1,"origin":"Estaci\u00f3n 1","destination":"Estaci\u00f3n 5"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/trains/{id}/deactivate'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the train.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/schedules/{id}/seats-available'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Schedule] architecto"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/schedules/today
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"message":"No hay horarios programados para hoy."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/schedules/next
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"message":"No hay horarios programados en las pr\u00f3ximas 24 horas."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/schedules
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"route_id":1,"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00","created_at":"2025-04-16T22:39:39.000000Z","updated_at":"2025-04-16T22:39:39.000000Z","route":{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z"}},{"id":2,"route_id":2,"departure_time":"2025-04-18 08:30:00","arrival_time":"2025-04-18 10:00:00","created_at":"2025-04-18T18:40:20.000000Z","updated_at":"2025-04-18T18:40:20.000000Z","route":{"id":2,"train_id":2,"origin_station_id":5,"destination_station_id":1,"created_at":"2025-04-18T18:35:07.000000Z","updated_at":"2025-04-18T18:35:07.000000Z"}},{"id":3,"route_id":3,"departure_time":"2025-04-22 08:30:00","arrival_time":"2025-04-30 18:00:00","created_at":"2025-04-23T17:32:59.000000Z","updated_at":"2025-04-23T17:32:59.000000Z","route":{"id":3,"train_id":5,"origin_station_id":9,"destination_station_id":8,"created_at":"2025-04-23T17:32:12.000000Z","updated_at":"2025-04-23T17:32:12.000000Z"}},{"id":4,"route_id":4,"departure_time":"2025-04-29 08:30:00","arrival_time":"2025-04-29 16:00:00","created_at":"2025-04-28T20:48:45.000000Z","updated_at":"2025-04-28T20:48:45.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z"}},{"id":5,"route_id":4,"departure_time":"2025-04-29 08:30:00","arrival_time":"2025-04-30 16:00:00","created_at":"2025-04-28T21:05:11.000000Z","updated_at":"2025-04-28T21:05:11.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z"}},{"id":6,"route_id":4,"departure_time":"2025-04-29 08:30:00","arrival_time":"2025-04-30 08:30:00","created_at":"2025-04-28T21:06:01.000000Z","updated_at":"2025-04-28T21:06:01.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z"}},{"id":7,"route_id":4,"departure_time":"2025-04-30 08:30:00","arrival_time":"2025-04-30 10:30:00","created_at":"2025-04-28T21:07:14.000000Z","updated_at":"2025-04-28T21:07:14.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z"}}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/schedules
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      route_id:
+        name: route_id
+        description: 'The <code>id</code> of an existing record in the routes table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      departure_time:
+        name: departure_time
+        description: 'Must be a valid date.'
+        required: true
+        example: '2025-05-13T20:35:17'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      arrival_time:
+        name: arrival_time
+        description: 'Must be a valid date. Must be a date after <code>departure_time</code>.'
+        required: true
+        example: '2051-06-06'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      route_id: architecto
+      departure_time: '2025-05-13T20:35:17'
+      arrival_time: '2051-06-06'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/schedules/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"route_id":1,"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00","created_at":"2025-04-16T22:39:39.000000Z","updated_at":"2025-04-16T22:39:39.000000Z","route":{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/schedules/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      route_id:
+        name: route_id
+        description: 'The <code>id</code> of an existing record in the routes table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      departure_time:
+        name: departure_time
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-05-13T20:35:17'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      arrival_time:
+        name: arrival_time
+        description: 'Must be a valid date. Must be a date after <code>departure_time</code>.'
+        required: false
+        example: '2051-06-06'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      departure_time: '2025-05-13T20:35:17'
+      arrival_time: '2051-06-06'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/schedules/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/tickets/active
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total":4,"tickets":[{"id":1,"user_id":1,"schedule_id":1,"seat_number":5,"status":"reserved","created_at":"2025-04-17T00:20:16.000000Z","updated_at":"2025-05-05T19:48:26.000000Z","price":0,"user":{"id":1,"name":"Juan Perez","email":"juan@example.com","email_verified_at":null,"created_at":"2025-04-17T00:19:30.000000Z","updated_at":"2025-04-24T19:59:32.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":1,"route_id":1,"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00","created_at":"2025-04-16T22:39:39.000000Z","updated_at":"2025-04-16T22:39:39.000000Z","route":{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z","train":{"id":1,"name":"Tren Bala","capacity":50,"created_at":"2025-04-16T01:38:55.000000Z","updated_at":"2025-04-16T01:38:55.000000Z","is_active":1}}}},{"id":2,"user_id":2,"schedule_id":2,"seat_number":1,"status":"reserved","created_at":"2025-04-18T18:59:01.000000Z","updated_at":"2025-04-18T18:59:01.000000Z","price":0,"user":{"id":2,"name":"Alejandra Gomez","email":"aleja@example.com","email_verified_at":null,"created_at":"2025-04-18T18:41:17.000000Z","updated_at":"2025-04-18T18:41:17.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":2,"route_id":2,"departure_time":"2025-04-18 08:30:00","arrival_time":"2025-04-18 10:00:00","created_at":"2025-04-18T18:40:20.000000Z","updated_at":"2025-04-18T18:40:20.000000Z","route":{"id":2,"train_id":2,"origin_station_id":5,"destination_station_id":1,"created_at":"2025-04-18T18:35:07.000000Z","updated_at":"2025-04-18T18:35:07.000000Z","train":{"id":2,"name":"Tren suburbano","capacity":2,"created_at":"2025-04-18T18:34:12.000000Z","updated_at":"2025-04-18T18:34:12.000000Z","is_active":1}}}},{"id":5,"user_id":5,"schedule_id":3,"seat_number":11,"status":"reserved","created_at":"2025-04-26T20:44:48.000000Z","updated_at":"2025-04-26T20:44:48.000000Z","price":0,"user":{"id":5,"name":"santiago","email":"santi@example.com","email_verified_at":null,"created_at":"2025-04-21T20:41:50.000000Z","updated_at":"2025-04-22T20:56:50.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":3,"route_id":3,"departure_time":"2025-04-22 08:30:00","arrival_time":"2025-04-30 18:00:00","created_at":"2025-04-23T17:32:59.000000Z","updated_at":"2025-04-23T17:32:59.000000Z","route":{"id":3,"train_id":5,"origin_station_id":9,"destination_station_id":8,"created_at":"2025-04-23T17:32:12.000000Z","updated_at":"2025-04-23T17:32:12.000000Z","train":{"id":5,"name":"Tren tur\u00edstico","capacity":50,"created_at":"2025-04-23T17:27:49.000000Z","updated_at":"2025-04-23T17:27:49.000000Z","is_active":1}}}},{"id":6,"user_id":5,"schedule_id":4,"seat_number":1,"status":"reserved","created_at":"2025-05-05T19:55:17.000000Z","updated_at":"2025-05-05T19:55:17.000000Z","price":0,"user":{"id":5,"name":"santiago","email":"santi@example.com","email_verified_at":null,"created_at":"2025-04-21T20:41:50.000000Z","updated_at":"2025-04-22T20:56:50.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":4,"route_id":4,"departure_time":"2025-04-29 08:30:00","arrival_time":"2025-04-29 16:00:00","created_at":"2025-04-28T20:48:45.000000Z","updated_at":"2025-04-28T20:48:45.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z","train":{"id":7,"name":"Tren Interurbano","capacity":100,"created_at":"2025-04-26T20:56:50.000000Z","updated_at":"2025-04-26T20:57:09.000000Z","is_active":1}}}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/tickets
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"user_id":1,"schedule_id":1,"seat_number":5,"status":"reserved","created_at":"2025-04-17T00:20:16.000000Z","updated_at":"2025-05-05T19:48:26.000000Z","price":0,"user":{"id":1,"name":"Juan Perez","email":"juan@example.com","email_verified_at":null,"created_at":"2025-04-17T00:19:30.000000Z","updated_at":"2025-04-24T19:59:32.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":1,"route_id":1,"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00","created_at":"2025-04-16T22:39:39.000000Z","updated_at":"2025-04-16T22:39:39.000000Z","route":{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z"}}},{"id":2,"user_id":2,"schedule_id":2,"seat_number":1,"status":"reserved","created_at":"2025-04-18T18:59:01.000000Z","updated_at":"2025-04-18T18:59:01.000000Z","price":0,"user":{"id":2,"name":"Alejandra Gomez","email":"aleja@example.com","email_verified_at":null,"created_at":"2025-04-18T18:41:17.000000Z","updated_at":"2025-04-18T18:41:17.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":2,"route_id":2,"departure_time":"2025-04-18 08:30:00","arrival_time":"2025-04-18 10:00:00","created_at":"2025-04-18T18:40:20.000000Z","updated_at":"2025-04-18T18:40:20.000000Z","route":{"id":2,"train_id":2,"origin_station_id":5,"destination_station_id":1,"created_at":"2025-04-18T18:35:07.000000Z","updated_at":"2025-04-18T18:35:07.000000Z"}}},{"id":3,"user_id":2,"schedule_id":2,"seat_number":2,"status":"used","created_at":"2025-04-18T18:59:21.000000Z","updated_at":"2025-04-24T19:28:41.000000Z","price":0,"user":{"id":2,"name":"Alejandra Gomez","email":"aleja@example.com","email_verified_at":null,"created_at":"2025-04-18T18:41:17.000000Z","updated_at":"2025-04-18T18:41:17.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":2,"route_id":2,"departure_time":"2025-04-18 08:30:00","arrival_time":"2025-04-18 10:00:00","created_at":"2025-04-18T18:40:20.000000Z","updated_at":"2025-04-18T18:40:20.000000Z","route":{"id":2,"train_id":2,"origin_station_id":5,"destination_station_id":1,"created_at":"2025-04-18T18:35:07.000000Z","updated_at":"2025-04-18T18:35:07.000000Z"}}},{"id":4,"user_id":6,"schedule_id":3,"seat_number":10,"status":"cancelled","created_at":"2025-04-23T17:36:35.000000Z","updated_at":"2025-04-23T21:18:47.000000Z","price":0,"user":{"id":6,"name":"Will Smith","email":"will@example.com","email_verified_at":null,"created_at":"2025-04-23T17:35:14.000000Z","updated_at":"2025-04-23T17:35:14.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":3,"route_id":3,"departure_time":"2025-04-22 08:30:00","arrival_time":"2025-04-30 18:00:00","created_at":"2025-04-23T17:32:59.000000Z","updated_at":"2025-04-23T17:32:59.000000Z","route":{"id":3,"train_id":5,"origin_station_id":9,"destination_station_id":8,"created_at":"2025-04-23T17:32:12.000000Z","updated_at":"2025-04-23T17:32:12.000000Z"}}},{"id":5,"user_id":5,"schedule_id":3,"seat_number":11,"status":"reserved","created_at":"2025-04-26T20:44:48.000000Z","updated_at":"2025-04-26T20:44:48.000000Z","price":0,"user":{"id":5,"name":"santiago","email":"santi@example.com","email_verified_at":null,"created_at":"2025-04-21T20:41:50.000000Z","updated_at":"2025-04-22T20:56:50.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":3,"route_id":3,"departure_time":"2025-04-22 08:30:00","arrival_time":"2025-04-30 18:00:00","created_at":"2025-04-23T17:32:59.000000Z","updated_at":"2025-04-23T17:32:59.000000Z","route":{"id":3,"train_id":5,"origin_station_id":9,"destination_station_id":8,"created_at":"2025-04-23T17:32:12.000000Z","updated_at":"2025-04-23T17:32:12.000000Z"}}},{"id":6,"user_id":5,"schedule_id":4,"seat_number":1,"status":"reserved","created_at":"2025-05-05T19:55:17.000000Z","updated_at":"2025-05-05T19:55:17.000000Z","price":0,"user":{"id":5,"name":"santiago","email":"santi@example.com","email_verified_at":null,"created_at":"2025-04-21T20:41:50.000000Z","updated_at":"2025-04-22T20:56:50.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":4,"route_id":4,"departure_time":"2025-04-29 08:30:00","arrival_time":"2025-04-29 16:00:00","created_at":"2025-04-28T20:48:45.000000Z","updated_at":"2025-04-28T20:48:45.000000Z","route":{"id":4,"train_id":7,"origin_station_id":5,"destination_station_id":2,"created_at":"2025-04-26T21:32:53.000000Z","updated_at":"2025-04-26T21:32:53.000000Z"}}}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tickets
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      schedule_id:
+        name: schedule_id
+        description: 'The <code>id</code> of an existing record in the schedules table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      seat_number:
+        name: seat_number
+        description: 'Must be at least 1.'
+        required: true
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: cancelled
+        type: string
+        enumValues:
+          - reserved
+          - cancelled
+          - used
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_id: architecto
+      schedule_id: architecto
+      seat_number: 22
+      status: cancelled
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"user_id":1,"schedule_id":1,"seat_number":5,"status":"reserved","created_at":"2025-04-17T00:20:16.000000Z","updated_at":"2025-05-05T19:48:26.000000Z","price":0,"user":{"id":1,"name":"Juan Perez","email":"juan@example.com","email_verified_at":null,"created_at":"2025-04-17T00:19:30.000000Z","updated_at":"2025-04-24T19:59:32.000000Z","deleted_at":null,"is_active":1},"schedule":{"id":1,"route_id":1,"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00","created_at":"2025-04-16T22:39:39.000000Z","updated_at":"2025-04-16T22:39:39.000000Z","route":{"id":1,"train_id":1,"origin_station_id":1,"destination_station_id":5,"created_at":"2025-04-16T01:40:38.000000Z","updated_at":"2025-04-16T01:40:38.000000Z"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      schedule_id:
+        name: schedule_id
+        description: 'The <code>id</code> of an existing record in the schedules table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      seat_number:
+        name: seat_number
+        description: 'Must be at least 1.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: reserved
+        type: string
+        enumValues:
+          - reserved
+          - cancelled
+          - used
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      seat_number: 16
+      status: reserved
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/schedules/{id}/users'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: ''
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tickets/schedule/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the schedule.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"schedule_id":"1","tickets":[{"ticket_id":1,"user":{"id":1,"name":"Juan Perez","email":"juan@example.com"},"seat_number":5,"status":"reserved"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tickets/history/user/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"user":{"id":1,"name":"Juan Perez","email":"juan@example.com"},"tickets":[{"ticket_id":1,"seat_number":5,"status":"reserved","schedule":{"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00"},"route":{"origin":"Estaci\u00f3n 1","destination":"Estaci\u00f3n 5","train":"Tren Bala"}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tickets/{id}/use'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tickets/{id}/cancel'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users/search
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 400
+        content: '{"message":"Par\u00e1metro \"name\" requerido para la b\u00fasqueda."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"Juan Perez","email":"juan@example.com","email_verified_at":null,"created_at":"2025-04-17T00:19:30.000000Z","updated_at":"2025-04-24T19:59:32.000000Z","deleted_at":null,"is_active":1},{"id":2,"name":"Alejandra Gomez","email":"aleja@example.com","email_verified_at":null,"created_at":"2025-04-18T18:41:17.000000Z","updated_at":"2025-04-18T18:41:17.000000Z","deleted_at":null,"is_active":1},{"id":3,"name":"Matt Shadows","email":"matt@example.com","email_verified_at":null,"created_at":"2025-04-18T19:08:41.000000Z","updated_at":"2025-04-18T19:08:41.000000Z","deleted_at":null,"is_active":1},{"id":4,"name":"Matt hinc","email":"matt@gmail.com","email_verified_at":null,"created_at":"2025-04-21T20:11:04.000000Z","updated_at":"2025-04-21T20:11:04.000000Z","deleted_at":null,"is_active":1},{"id":5,"name":"santiago","email":"santi@example.com","email_verified_at":null,"created_at":"2025-04-21T20:41:50.000000Z","updated_at":"2025-04-22T20:56:50.000000Z","deleted_at":null,"is_active":1},{"id":6,"name":"Will Smith","email":"will@example.com","email_verified_at":null,"created_at":"2025-04-23T17:35:14.000000Z","updated_at":"2025-04-23T17:35:14.000000Z","deleted_at":null,"is_active":1}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 6 characters.'
+        required: true
+        example: '-0pBNvYgxw'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      password: '-0pBNvYgxw'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"name":"Juan Perez","email":"juan@example.com","email_verified_at":null,"created_at":"2025-04-17T00:19:30.000000Z","updated_at":"2025-04-24T19:59:32.000000Z","deleted_at":null,"is_active":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 6 characters.'
+        required: false
+        example: '-0pBNvYgxw'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      password: '-0pBNvYgxw'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users/trashed
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\User] trashed"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}/tickets'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"user":{"id":1,"name":"Juan Perez","email":"juan@example.com"},"tickets":[{"ticket_id":1,"seat_number":5,"status":"reserved","schedule":{"departure_time":"2025-04-16 10:30:00","arrival_time":"2025-04-16 13:15:00"},"route":{"origin":"Estaci\u00f3n 1","destination":"Estaci\u00f3n 5","train":"Tren Bala"}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/users/{id}/restore'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/users/{id}/deactivate'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/reports/train-usage
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total_trains":6,"report":[{"train_id":1,"train_name":"Tren Bala","total_schedules":1,"capacity_per_schedule":50,"total_seats":50,"reserved_tickets":1,"usage_percentage":2},{"train_id":2,"train_name":"Tren suburbano","total_schedules":1,"capacity_per_schedule":2,"total_seats":2,"reserved_tickets":1,"usage_percentage":50},{"train_id":3,"train_name":"Tren ligero","total_schedules":0,"capacity_per_schedule":25,"total_seats":0,"reserved_tickets":0,"usage_percentage":0},{"train_id":4,"train_name":"Tren regional","total_schedules":0,"capacity_per_schedule":30,"total_seats":0,"reserved_tickets":0,"usage_percentage":0},{"train_id":5,"train_name":"Tren tur\u00edstico","total_schedules":1,"capacity_per_schedule":50,"total_seats":50,"reserved_tickets":1,"usage_percentage":2},{"train_id":7,"train_name":"Tren Interurbano","total_schedules":4,"capacity_per_schedule":100,"total_seats":400,"reserved_tickets":1,"usage_percentage":0.25}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/reports/income
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total_income":0,"total_tickets":5,"breakdown_by_schedule":{"1":{"tickets_sold":1,"income":0},"2":{"tickets_sold":2,"income":0},"3":{"tickets_sold":1,"income":0},"4":{"tickets_sold":1,"income":0}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
