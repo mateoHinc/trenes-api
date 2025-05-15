@@ -114,10 +114,10 @@ php artisan scribe:generate
 
 # ✒️ Autor
 
-**👤 Nombre:** Mateo Hincapié Giraldo
-**💼 Profesión:** Ingeniero de sistemas.
-**📧 E-mail:** mateo.hincapie@hotmail.com
-**📍 Lugar de Origen:** Medellín, Colombia
+- **👤 Nombre:** Mateo Hincapié Giraldo
+- **💼 Profesión:** Ingeniero de sistemas.
+- **📧 E-mail:** mateo.hincapie@hotmail.com
+- **📍 Lugar de Origen:** Medellín, Colombia
 
 ---
 
