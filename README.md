@@ -75,3 +75,46 @@ php artisan scribe:generate
 | GET    | `/api/trains/{id}/routes`  | Ver rutas del tren                |
 | GET    | `/api/trains/available`    | Trenes sin rutas asignadas        |
 | PATCH  | `/api/trains/{id}/deactive`| Activar/Desactivar tren           |
+
+## Rutas
+
+| Método | Endpoint                   | Descripción                          |
+|--------|----------------------------|--------------------------------------|
+| GET    | `/api/routes`              | Listar rutas                         |
+| POST   | `/api/routes`              | Crear ruta                           |
+| DELETE | `/api/routes/{id}`         | Eliminar ruta si no tiene horarios   |
+
+## Horarios
+
+| Método | Endpoint                            | Descripción                 |
+|--------|-------------------------------------|-----------------------------|
+| GET    | `/api/schedules`                    | Listar horarios             |
+| GET    | `/api/schedules/next`               | Horarios próximas 24h       |
+| GET    | `/api/schedules/today`              | Horarios de hoy             |
+| GET    | `/api/schedules/{id}/seat-available`| Asientos disponibles        |
+
+## Tickets
+
+| Método | Endpoint                        | Descripción                     |
+|--------|---------------------------------|---------------------------------|
+| POST   | `/api/tickets`                  | Crear ticket                    |
+| POST   | `/api/tickets/{id}/cancel`      | Cancelar ticket                 |
+| POST   | `/api/tickets/{id}/use`         | Marcar como usada               |
+| GET    | `/api/tickets/active`           | Tickets reservados              |
+| GET    | `/api/tickets/history/use/{id}` | Historial por usuario           |
+
+## Reportes
+
+| Método | Endpoint                   | Descripción                       |
+|--------|----------------------------|-----------------------------------|
+| GET    | `/reports/income`          | Ingresos estimados por tickets    |
+| GET    | `/api/reports/train-usage` | % de Ocupación por tren           |
+
+---
+
+# ✨ Autor
+Mateo Hincapié Giraldo - Tecnologo en Sistemas de Información - Ingeniero de sistemas.
+
+Desarrollado como proyecto de backend PHP, Laravel 12.
+
+Contacto: mateo.hincapie@hotmail.com
