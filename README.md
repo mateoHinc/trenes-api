@@ -112,9 +112,13 @@ php artisan scribe:generate
 
 ---
 
-# ✨ Autor
-Mateo Hincapié Giraldo - Tecnologo en Sistemas de Información - Ingeniero de sistemas.
+# ✒️ Autor
 
-Desarrollado como proyecto de backend PHP, Laravel 12.
+**👤 Nombre:** Mateo Hincapié Giraldo
+**💼 Profesión:** Tecnologo en Sistemas de Información - Ingeniero de sistemas.
+**📧 E-mail:** mateo.hincapie@hotmail.com
+**📍 Lugar de Origen:** Medellín, Colombia
 
-Contacto: mateo.hincapie@hotmail.com
+---
+
+## Desarrollado como proyecto de backend PHP, Laravel 12.
