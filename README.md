@@ -112,6 +112,68 @@ php artisan scribe:generate
 
 ---
 
+# Guía de uso de la API
+
+## 1. Crear Entidades Base
+
+```http
+POST /api/users             → Crear usuario
+POST /api/trains            → Crear tren
+POST /api/stations          → Crear estación
+```
+
+## 2. Crear rutas de viaje
+
+```http
+POST /api/routes
+```
+
+Requiere:
+- train_id
+- origin_station_id
+- destination_station_id
+
+🔒 Validaciones:
+- Origen diferente del destino
+- Ruta no duplicada para el mismo tren
+
+## 3. Crear horarios para las rutas
+
+```http
+POST /api/schedules
+```
+
+Requiere:
+- route_id
+- departure_time
+- arrival_time
+
+## 4. Crear horarios para las rutas
+
+```http
+POST /api/tickets
+```
+
+Requiere:
+- user_id
+- schedule_id
+- seat_number
+- price
+
+🔒 Validaciones:
+- No duplicar asiento en mismo horario
+- No duplicar ticket para mismo usuario + horario
+- Capacidad del tren no superada
+
+## 5. Cancelar o usar tickets
+
+```http
+POST /api/tickets/{id}/cancel     → Cancelar ticket  
+POST /api/tickets/{id}/use        → Marcar ticket como usado
+```
+
+---
+
 # ✒️ Autor
 
 - **👤 Nombre:** Mateo Hincapié Giraldo
